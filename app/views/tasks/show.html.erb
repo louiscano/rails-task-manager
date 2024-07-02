@@ -1,0 +1,14 @@
+<div class="p-5">
+<h1><%= @task.title %></h1>
+<p class="blockquote border-start border-5 p-3 bg-warning bg-opacity-10 col-3"><%= @task.details %></p>
+<div>
+<input class="mb-3" type="checkbox" <%= @task.completed? ? "checked" : "" %>/>
+<%= @task.completed? ? "This task is completed ✅" : "This task is not completed yet ❌" %>
+</div>
+<div>
+<%= link_to "Edit Task 📝", edit_task_path, class:"text-decoration-none btn btn-primary mb-3" %>
+</div>
+<div>
+<%= link_to '<i class="fa-solid fa-rotate-left"></i> Back to list'.html_safe, tasks_path, class:"text-decoration-none" %>
+</div>
+</div>

@@ -1,0 +1,15 @@
+<div class="p-5">
+<h1>My tasks</h1>
+<div>
+  <% @tasks.each do |task| %>
+    <div class="p-3">
+    <input class="me-2" type="checkbox" <%= task.completed? ? "checked" : "" %>/>
+    <%= link_to task.title, task_path(task), class:"text-decoration-none" %><%= link_to '<i class="fa-solid fa-trash-can ps-2"></i>'.html_safe,
+    delete_task_path(task),
+    data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </div>
+  <% end %>
+
+</div>
+<%= link_to '<i class="fa-solid fa-plus"></i> Add a new task'.html_safe, new_task_path, class:"text-decoration-none"%>
+</div>
